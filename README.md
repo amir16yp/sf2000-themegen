@@ -16,7 +16,7 @@ The program includes a set of Python scripts and a configuration file that work 
 The `input` folder should contain PNG files specific to each console:
 
 - Console initials (e.g., `gb.png`, `snes.png`, `md.png`): These are the logos displayed in the stock ROM selection menu, appearing in the top-left corner.
-- Background images (e.g., `snes_c.png`): These images are used as backgrounds on the home screen for each system.
+- Background images (e.g., `snes_c.png`): These images are used inside the backgrounds on the home screen for each system.
 
 ### Using Subfolders for Boxart
 You can replace the default boxart images for each system by using subfolders within the `input` directory:
