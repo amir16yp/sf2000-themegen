@@ -1,0 +1,20 @@
+{
+  "game_menu_background": {
+    "type": "gradient",
+    "start_color": [174, 11, 197],
+    "end_color": [55, 207, 255],
+    "direction": "vertical"
+  },
+  "home_menu_background": {
+    "type": "solid",
+    "color": [255, 144, 238]
+  },
+  "console_top_bar_size_px": 30,
+  "console_bottom_bar_size_px": 20,
+  "console_top_bar_color_rgb": [174, 11, 197],
+  "console_bottom_bar_color_rgb": [174, 11, 197],
+  "game_menu_top_bar_color_rgb": [255, 55, 160],
+  "game_menu_bottom_bar_size_px": 20,
+  "game_menu_top_bar_size_px": 70,
+  "game_menu_bottom_bar_color_rgb": [255, 144, 238]
+}
