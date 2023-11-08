@@ -57,8 +57,8 @@ console_backgrounds = [
     ("gba_c.png", "irftp.ctp"),
     ("nes_c.png", "fixas.ctp"),
     ("mame_c.png", "hctml.ers"),
-    ("settings.png", "dsuei.cpl"),
-    ("lowbattery.png", "jccatm.kbp")
+    ("settings.png", "dsuei.cpl")
+#    ("lowbattery.png", "jccatm.kbp")
 ]
 
 # List of console listing images with corresponding filenames (only ending with "_bg")
@@ -69,7 +69,8 @@ console_listing_images = [
     ('GBA', 'gba_bg.png', 'efsui.stc'),
     ('NES', 'nes_bg.png', 'urlkp.bvs'),
     ('MAME', 'mame_bg.png', 'apisa.dlk'),
-    ('MD', 'md_bg.png', 'ihdsf.bke')
+    ('MD', 'md_bg.png', 'ihdsf.bke'),
+    ("Search", "search_bg.png","lfsvc.dll")
 ]
 
 # Define the folder containing the images

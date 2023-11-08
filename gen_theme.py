@@ -121,7 +121,7 @@ def generate_console_background(console, console_image_path, bg_image_path, corn
     return bg_image_path
 
 
-def create_listing_image(console_name, image_path, output_file):
+def create_listing_image(console_name, image_path, output_file, include_text=True):
     print(f'generating ROM listing background for {console_name}')
     theme_config = load_theme_config()
 
@@ -160,16 +160,17 @@ def create_listing_image(console_name, image_path, output_file):
 
     # Paste the logo image at its position
     img.paste(logo, logo_position, logo)
+    if include_text:
 
     # Load custom font and set the font size
-    font_size = 36  # You can adjust the font size as needed
-    try:
-        font = ImageFont.truetype('PressStart2P-Regular.ttf', font_size)
-    except IOError:
-        font = ImageFont.load_default()  # Use default font if the custom font is not available
+        font_size = 36  # You can adjust the font size as needed
+        try:
+            font = ImageFont.truetype('PressStart2P-Regular.ttf', font_size)
+        except IOError:
+            font = ImageFont.load_default()  # Use default font if the custom font is not available
 
-    # Draw the console name text next to the logo
-    draw.text(text_position, console_name, fill="white", font=font)
+        # Draw the console name text next to the logo
+        draw.text(text_position, console_name, fill="white", font=font)
 
     # Save the final image
     img.save('output/' + output_file, format='PNG')
@@ -199,3 +200,4 @@ create_listing_image('GBA', 'input/gba.png', 'gba_bg.png')  # efsui.stc
 create_listing_image('NES', 'input/nes.png', 'nes_bg.png')  # urlkp.bvs
 create_listing_image('MAME', 'input/mame.png', 'mame_bg.png')  # apisa.dlk
 create_listing_image('MD', 'input/md.png', 'md_bg.png')  # ihdsf.bke
+create_listing_image('Search', 'input/search.png', 'search_bg.png', include_text=False) # lfsvc.dll		
