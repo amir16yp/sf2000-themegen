@@ -182,22 +182,44 @@ def copy_generic_image(filepath):
     shutil.copy(filepath, 'output/' + filename)
 
 
-# TODO: surely there's a better way to do this but i cant be arsed right now
-generate_console_background("snes", "input/snes_c.png", "snes_c.png")  # drivr.ers
-generate_console_background("md", "input/md_c.png", "md_c.png")  # icuin.cpl
-generate_console_background("gb", "input/gb_c.png", "gb_c.png")  # irftp.ctp
-generate_console_background("gbc", "input/gbc_c.png", "gbc_c.png")  # qwave.bke
-generate_console_background("gba", "input/gba_c.png", "gba_c.png")  # irftp.ctp
-generate_console_background("nes", "input/nes_c.png", "nes_c.png")  # fixas.ctp
-generate_console_background("mame", None, "mame_c.png")  # hctml.ers
-generate_console_background("settings", "input/settings_c.png", "settings.png", "top_right", False)  # dsuei.cpl
-copy_generic_image("input/lowbattery.png")  # jccatm.kbp
+# Dictionary for console backgrounds
+consoles = {
+    "snes": "input/snes_c.png",
+    "md": "input/md_c.png",
+    "gb": "input/gb_c.png",
+    "gbc": "input/gbc_c.png",
+    "gba": "input/gba_c.png",
+    "nes": "input/nes_c.png",
+    "mame": None,  # Assuming 'mame' does not require an input image path.
+    "settings": "input/settings_c.png",  # Special case with corner
+}
 
-create_listing_image('SNES', 'input/snes.png', 'snes_bg.png')  # c1eac.pal
-create_listing_image('GB', 'input/gb.png', 'gb_bg.png')  # fltmc.sta
-create_listing_image('GBC', 'input/gbc.png', 'gbc_bg.png')  # cero.phl
-create_listing_image('GBA', 'input/gba.png', 'gba_bg.png')  # efsui.stc
-create_listing_image('NES', 'input/nes.png', 'nes_bg.png')  # urlkp.bvs
-create_listing_image('MAME', 'input/mame.png', 'mame_bg.png')  # apisa.dlk
-create_listing_image('MD', 'input/md.png', 'md_bg.png')  # ihdsf.bke
-create_listing_image('Search', 'input/search.png', 'search_bg.png', include_text=False) # lfsvc.dll		
+# Loop over the console dictionary to generate backgrounds
+for console, input_path in consoles.items():
+    output_file = f"{console}_c.png"  # Construct the output file name based on console name
+    if console == "settings":
+        # 'settings' console has unique corner and include_text parameters
+        generate_console_background(console, input_path, f"{console}.png",numbers=False, corner="top_right")
+    else:
+        # Other consoles don't use the corner or include_text parameters
+        generate_console_background(console, input_path, output_file)
+
+
+# Dictionary for listing images with a flag to include text or not
+listing_images = {
+    "SNES": ("input/snes.png", "snes_bg.png", True),
+    "GB": ("input/gb.png", "gb_bg.png", True),
+    "GBC": ("input/gbc.png", "gbc_bg.png", True),
+    "GBA": ("input/gba.png", "gba_bg.png", True),
+    "NES": ("input/nes.png", "nes_bg.png", True),
+    "MAME": ("input/mame.png", "mame_bg.png", True),
+    "MD": ("input/md.png", "md_bg.png", True),
+    "Search": ("input/search.png", "search_bg.png", False),
+    "History": ("input/history.png", "history_bg.png", False),
+    "User ROMs": ("input/user-roms.png", "userroms_bg.png", False),
+    "Favourites": ("input/favourites.png", "favourites_bg.png", False),
+}
+
+# Loop over the listing images dictionary to create listing images
+for name, (input_file, output_background, include_text) in listing_images.items():
+    create_listing_image(name, input_file, output_background, include_text)

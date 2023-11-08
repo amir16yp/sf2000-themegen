@@ -70,7 +70,10 @@ console_listing_images = [
     ('NES', 'nes_bg.png', 'urlkp.bvs'),
     ('MAME', 'mame_bg.png', 'apisa.dlk'),
     ('MD', 'md_bg.png', 'ihdsf.bke'),
-    ("Search", "search_bg.png","lfsvc.dll")
+    ("Search", "search_bg.png","lfsvc.dll"),
+    ("History", "history_bg.png", "lkvax.aef"),
+    ("User ROMs", "userroms_bg.png", "qasf.bel"),
+    ("Favourites", "favourites_bg.png", "uyhbc.dck")
 ]
 
 # Define the folder containing the images
